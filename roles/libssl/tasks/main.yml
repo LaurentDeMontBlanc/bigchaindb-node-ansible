@@ -1,0 +1,17 @@
+---
+- name: Add xenial-security
+  shell: |
+    echo deb http://security.ubuntu.com/ubuntu xenial-security main \
+    > /etc/apt/sources.list.d/xenial-security.list
+  become: yes
+
+- name: Update apt
+  apt:
+    upgrade: yes
+    update_cache: yes
+  become: yes
+
+- name: Install libssl1.0.0
+  apt:
+    name: libssl1.0.0
+  become: yes

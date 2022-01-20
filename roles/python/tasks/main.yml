@@ -1,4 +1,14 @@
 ---
+- name: Add ppa
+  apt_repository:
+    repo: ppa:deadsnakes/ppa
+  become: yes
+
+- name: Updated apt
+  apt:
+    upgrade: yes
+    update_cache: yes
+  become: yes
 
 - name: Install python
   apt:
